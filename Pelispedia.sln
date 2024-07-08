@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{42B0F788-F2DF-4023-A798-56C074000225}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pelispedia.Api", "Pelispedia.Api\Pelispedia.Api.csproj", "{26D0902A-CE06-49B6-A0B0-B3575C3C50D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pelispedia.Domain", "Pelispedia.Domain\Pelispedia.Domain.csproj", "{605123C9-1EFD-4420-8BE3-7DD83414DD83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pelispedia.Infrastructure", "Pelispedia.Infrastructure\Pelispedia.Infrastructure.csproj", "{2D08BB5E-CE79-4916-93BA-A13D7CD72793}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26D0902A-CE06-49B6-A0B0-B3575C3C50D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26D0902A-CE06-49B6-A0B0-B3575C3C50D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26D0902A-CE06-49B6-A0B0-B3575C3C50D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26D0902A-CE06-49B6-A0B0-B3575C3C50D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{605123C9-1EFD-4420-8BE3-7DD83414DD83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{605123C9-1EFD-4420-8BE3-7DD83414DD83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{605123C9-1EFD-4420-8BE3-7DD83414DD83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{605123C9-1EFD-4420-8BE3-7DD83414DD83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D08BB5E-CE79-4916-93BA-A13D7CD72793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D08BB5E-CE79-4916-93BA-A13D7CD72793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D08BB5E-CE79-4916-93BA-A13D7CD72793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D08BB5E-CE79-4916-93BA-A13D7CD72793}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{26D0902A-CE06-49B6-A0B0-B3575C3C50D1} = {42B0F788-F2DF-4023-A798-56C074000225}
+		{605123C9-1EFD-4420-8BE3-7DD83414DD83} = {42B0F788-F2DF-4023-A798-56C074000225}
+		{2D08BB5E-CE79-4916-93BA-A13D7CD72793} = {42B0F788-F2DF-4023-A798-56C074000225}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B76B25A5-9D1E-4F42-8DF1-D5DF83C3F7B5}
+	EndGlobalSection
+EndGlobal
