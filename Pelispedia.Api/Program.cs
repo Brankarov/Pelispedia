@@ -1,4 +1,10 @@
 
+using Pelispedia.Infrastructure;
+using Pelispedia.Infrastructure.Repositories;
+using Pelispedia.Infrastructure.Repositories.Interfaces;
+using Pelispedia.Service.Services;
+using Pelispedia.Service.Services.Interface;
+
 namespace Pelispedia.Api
 {
     public class Program
@@ -8,6 +14,14 @@ namespace Pelispedia.Api
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            //builder.Services.Configure<DatabaseConfig>(builder.Configuration.GetSection("DatabaseConfig"));
+            builder.Services.AddSingleton(provider =>
+                {
+                    return provider.GetService<IConfiguration>().GetSection("DatabaseConfig").Get<DatabaseConfig>();
+                }
+            );
+            builder.Services.AddTransient<IActorRepository, ActorRepository>();
+            builder.Services.AddTransient<IActorService, ActorService>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
