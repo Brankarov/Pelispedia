@@ -36,7 +36,7 @@ namespace Pelispedia.Infrastructure.Repositories
             {
                 connection.Open();
                 var query = "SELECT IdPelicula, Titulo, Estreno, Valoracion, Sinopsis, IdDIrector, IdGenero FROM Pelicula";
-                var peliculas = await connection.QueryFirstOrDefaultAsync<IEnumerable<Pelicula>>(query);
+                var peliculas = await connection.QueryAsync<Pelicula>(query);
                 return peliculas;
             }
         }

@@ -24,7 +24,7 @@ namespace Pelispedia.Service.Services
             return Mapper.Map(pelicula);
         }
 
-        public async Task<List<PeliculaDTO>> GetAllPeliculas()
+        public async Task<IEnumerable<PeliculaDTO>> GetAllPeliculas()
         {
             var peliculas = await _peliculaRepository.GetAllPeliculas();
             return peliculas.Select(p =>
@@ -32,7 +32,7 @@ namespace Pelispedia.Service.Services
                 return new PeliculaDTO(
                     p.IdPelicula, p.Titulo, p.Estreno, p.Valoracion, p.Sinopsis, p.IdDirector, p.IdGenero
                 );
-            }).ToList();
+            });
         }
     }
 }

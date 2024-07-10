@@ -16,17 +16,22 @@ namespace Pelispedia.Api.Controllers
         }
 
 
-        [HttpGet(Name = "GetPeliculaById")]
-        public async Task<PeliculaDTO> GetPeliculaById(int id)
+        [HttpGet("{id}", Name = "GetPeliculaById")]
+        public async Task<ActionResult<PeliculaDTO>> GetPeliculaById(int id)
         {
-            var pelicula = await _peliculaService.GetPeliculaById(id);   
-            return pelicula;
+            var pelicula = await _peliculaService.GetPeliculaById(id);
+            if (pelicula == null)
+            {
+                return NotFound();
+            }
+            return Ok(pelicula);
         }
 
-        [HttpGet(Name = "GetAllPeliculas")]
-        public async Task<List<PeliculaDTO>> GetAllPeliculas()
+        [HttpGet(Name = "GetPeliculasList")]
+        public async Task<ActionResult<List<PeliculaDTO>>> GetPeliculasList()
         {
-            return await _peliculaService.GetAllPeliculas();
+            var peliculas = await _peliculaService.GetAllPeliculas();
+            return Ok(peliculas.ToList());
         }
     }
 }
