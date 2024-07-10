@@ -8,21 +8,12 @@ namespace Pelispedia.Domain.DbEntities
 {
     public class Pelicula
     {
-        public string Titulo { get; private set; }
-        public int Estreno { get; private set; }
-        public decimal Valoracion { get; private set; }
-        public string Sinopsis { get; private set; }
-        public int IdDirector { get; private set; }
-        public int IdGenero { get; private set; }
-
-        public Pelicula(string titutlo, int estrenoFecha, decimal valoracion, string sinopsis, int IdDirector, int IdGenero)
-        {
-            this.Titulo = titutlo;
-            this.Estreno = estrenoFecha;
-            this.Valoracion = valoracion;
-            this.Sinopsis = sinopsis;
-            this.IdDirector = IdDirector;
-            this.IdGenero = IdGenero;
-        }
+        public int IdPelicula { get; set; }
+        public string? Titulo { get; set; }
+        public int Estreno { get; set; }
+        public decimal Valoracion { get; set; }
+        public string? Sinopsis { get; set; }
+        public int IdDirector { get; set; }
+        public int IdGenero { get; set; }
     }
 }

@@ -15,7 +15,11 @@ namespace Pelispedia.Service
             return (actor != null? 
              new Actor(actor.Nobre, actor.Raza, actor.Sexo)
             : new Actor("", "", ""));
-            
+        }
+
+        public static PeliculaDTO Map(Pelicula peli)
+        {
+            return (new PeliculaDTO(peli.IdPelicula, peli.Titulo, peli.Estreno, peli.Valoracion, peli.Sinopsis, peli.IdDirector, peli.IdGenero ));
         }
     }
 }
