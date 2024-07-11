@@ -6,5 +6,6 @@ namespace Pelispedia.Service.Services.Interface
     {
         Task<PeliculaDTO> GetPeliculaById(int id);
         Task<IEnumerable<PeliculaDTO>> GetAllPeliculas();
+        Task<IEnumerable<PeliculaDetailedDTO>> GetDetailedMovies();
     }
 }

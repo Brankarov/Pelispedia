@@ -3,6 +3,7 @@ using Pelispedia.Domain.DbEntities;
 using Pelispedia.Infrastructure.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Formats.Asn1;
 using System.Linq;
@@ -40,5 +41,15 @@ namespace Pelispedia.Infrastructure.Repositories
                 return peliculas;
             }
         }
+
+        public async Task<IEnumerable<PeliculaDetailed>> GetMovieDetailed()
+        {
+            using (var connection = new SqlConnection(_databaseConfig.ConnectionString))
+            {
+                return connection.Query<PeliculaDetailed>("GetMovieDetails", commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        //public async Task<Pelicula> 
     }
 }

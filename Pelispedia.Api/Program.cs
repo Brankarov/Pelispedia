@@ -23,12 +23,24 @@ namespace Pelispedia.Api
             builder.Services.AddTransient<IActorRepository, ActorRepository>();
             builder.Services.AddTransient<IDirectorRepository, DirectorRepository>();
             builder.Services.AddTransient<IPeliculaRepository, PeliculaRepository>();
+            builder.Services.AddTransient<IGeneroRepository, GeneroRepository>();
 
             builder.Services.AddTransient<IActorService, ActorService>();
             builder.Services.AddTransient<IPeliculaService, PeliculaService>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            // Agrega la política CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:4200") // Cambia esto a la URL de tu aplicación Angular
+                               .AllowAnyHeader()
+                               .AllowAnyMethod();
+                    });
+            });
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
@@ -39,11 +51,15 @@ namespace Pelispedia.Api
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+                app.UseDeveloperExceptionPage();
             }
 
             app.UseHttpsRedirection();
+            
+            app.UseCors("AllowSpecificOrigin");
 
             app.UseAuthorization();
+
 
 
             app.MapControllers();

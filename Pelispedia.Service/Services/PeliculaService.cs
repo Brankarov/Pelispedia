@@ -34,5 +34,25 @@ namespace Pelispedia.Service.Services
                 );
             });
         }
+
+        public async Task<IEnumerable<PeliculaDetailedDTO>> GetDetailedMovies()
+        {
+            var peliculas = await _peliculaRepository.GetMovieDetailed();
+
+            return peliculas.GroupBy( p => new {p.IdPelicula, p.Titulo, p.Sinopsis, p.Estreno, p.Valoracion, p.nombre_genero, p.nombre_director})
+                .Select(g => new PeliculaDetailedDTO
+                ( 
+                    g.Key.IdPelicula,
+                    g.Key.Titulo,
+                    g.Key.Estreno,
+                    g.Key.Valoracion,
+                    g.Key.Sinopsis,
+                    g.Key.nombre_genero,
+                    g.Key.nombre_director
+                )
+                {
+                    Actores = g.Select( a => a.actor).ToList()
+                }).ToList();
+        }
     }
 }

@@ -6,5 +6,6 @@ namespace Pelispedia.Infrastructure.Repositories.Interfaces
     {
         Task<Pelicula> GetPeliculaById(int id);
         Task<IEnumerable<Pelicula>> GetAllPeliculas();
+        Task<IEnumerable<PeliculaDetailed>> GetMovieDetailed();
     }
 }

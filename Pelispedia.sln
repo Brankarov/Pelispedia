@@ -5,13 +5,15 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{42B0F788-F2DF-4023-A798-56C074000225}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pelispedia.Api", "Pelispedia.Api\Pelispedia.Api.csproj", "{26D0902A-CE06-49B6-A0B0-B3575C3C50D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pelispedia.Api", "Pelispedia.Api\Pelispedia.Api.csproj", "{26D0902A-CE06-49B6-A0B0-B3575C3C50D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pelispedia.Domain", "Pelispedia.Domain\Pelispedia.Domain.csproj", "{605123C9-1EFD-4420-8BE3-7DD83414DD83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pelispedia.Domain", "Pelispedia.Domain\Pelispedia.Domain.csproj", "{605123C9-1EFD-4420-8BE3-7DD83414DD83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pelispedia.Infrastructure", "Pelispedia.Infrastructure\Pelispedia.Infrastructure.csproj", "{2D08BB5E-CE79-4916-93BA-A13D7CD72793}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pelispedia.Infrastructure", "Pelispedia.Infrastructure\Pelispedia.Infrastructure.csproj", "{2D08BB5E-CE79-4916-93BA-A13D7CD72793}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pelispedia.Service", "Pelispedia.Service\Pelispedia.Service.csproj", "{FB8D34E7-C476-4178-98D1-7FB2D9EF6D6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pelispedia.Service", "Pelispedia.Service\Pelispedia.Service.csproj", "{FB8D34E7-C476-4178-98D1-7FB2D9EF6D6D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{57F031E3-C968-485F-8C9E-065945E2E8C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
