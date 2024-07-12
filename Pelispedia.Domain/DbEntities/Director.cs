@@ -8,11 +8,8 @@ namespace Pelispedia.Domain.DbEntities
 {
     public class Director
     {
-        //public int IdDirector {  get; private set; 
-        public string Nombre { get; private set; }
-        public Director(string nombreDirector)
-        {
-            Nombre = nombreDirector;
-        }
+        public int IdDirector { get;set; }
+        public string NombreDirector { get; set; }
+        
     }
 }

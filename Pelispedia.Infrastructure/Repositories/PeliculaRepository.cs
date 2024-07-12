@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Formats.Asn1;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -50,6 +51,24 @@ namespace Pelispedia.Infrastructure.Repositories
             }
         }
 
-        //public async Task<Pelicula> 
+        public async Task InsertPelicula(Pelicula pelicula)
+        {
+            using (var connection = new SqlConnection(_databaseConfig.ConnectionString))
+            {
+                connection.Open();
+                await connection.ExecuteAsync("INSERT INTO Pelicula(Titulo, Estreno, Valoracion, Sinopsis, IdDirector, IdGenero) VALUES(@Titulo, @Estreno, @Valoracion, @Sinopsis, @IdDirector, @IdGenero)", pelicula);
+            }
+        }
+
+        public async Task ActualizarPelicula(Pelicula pelicula)
+        {
+            using (var connection = new SqlConnection(_databaseConfig.ConnectionString))
+            {
+                connection.Open();
+                const string query = @"UPDATE Pelicula SET Titulo = @Titulo, Estreno = @Estreno, Valoracion = @Valoracion, Sinopsis = @Sinopsis, IdDirector = @IdDirector, IdGenero = @IdGenero
+                WHERE IdPelicula = @IdPelicula";
+                await connection.ExecuteAsync(query, pelicula);
+            }
+        }
     }
 }

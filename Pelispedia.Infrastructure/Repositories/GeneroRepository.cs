@@ -28,6 +28,16 @@ namespace Pelispedia.Infrastructure.Repositories
                 return genero;
             }
         }
+        public async Task<Genero> GetGeneroIdByName(string name)
+        {
+            using (var connection = new SqlConnection(_databaseConfig.ConnectionString))
+            {
+                connection.Open();
+                var query = "SELECT * FROM Genero WHERE NombreGenero = @name";
+                var director = await connection.QueryFirstOrDefaultAsync<Genero>(query, new { name = name });
+                return director;
+            }
+        }
 
         public async Task<IEnumerable<Genero>> GetAllGeneros()
         {

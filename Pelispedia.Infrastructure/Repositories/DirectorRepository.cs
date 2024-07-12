@@ -29,5 +29,26 @@ namespace Pelispedia.Infrastructure.Repositories
                 return director;
             }
         }
+        public async Task<Director> GetDirectorIdByName(string name)
+        {
+            using (var connection = new SqlConnection(_databaseConfig.ConnectionString))
+            {
+                connection.Open();
+                var query = "SELECT IdDirector, NombreDirector from Director WHERE NombreDirector = @name";
+                var director = await connection.QueryFirstOrDefaultAsync<Director>(query, new { name = name });
+                return director;
+            }
+        }
+
+        public async Task<IEnumerable<Director>> GetAllDirector()
+        {
+            using (var connection = new SqlConnection(_databaseConfig.ConnectionString))
+            {
+                connection.Open();
+                var query = "SELECT IdDirector, NombreDirector from Director";
+                var director = await connection.QueryAsync<Director>(query);
+                return director;
+            }
+        }
     }
 }

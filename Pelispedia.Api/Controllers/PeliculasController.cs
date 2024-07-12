@@ -12,10 +12,12 @@ namespace Pelispedia.Api.Controllers
     {
         private readonly IPeliculaService _peliculaService;
         private readonly IGeneroService _generoService;
-        public PeliculasController( IPeliculaService peliculaService, IGeneroService generoService)
+        private readonly IDirectorService _directorService;
+        public PeliculasController( IPeliculaService peliculaService, IGeneroService generoService, IDirectorService directorService)
         {
             _peliculaService = peliculaService;
             _generoService = generoService;
+            _directorService = directorService;
         }
 
 
@@ -44,17 +46,31 @@ namespace Pelispedia.Api.Controllers
             return Ok(peliculas.ToList());
         }
 
-        //[HttpPost("UpdateMovie/{id}", Name ="UpdateMovie")]
-        //public async Task<ActionResult> UpdateMovie(PeliculaDetailedDTO)
-        //{
-        //    var result = await _peliculaService.UpdateMovie();
-        //    return Ok();
-        //}
+        [HttpPut("UpdateMovie", Name = "UpdateMovie")]
+        public async Task<ActionResult> UpdateMovie(PeliculaDetailedDTO pelicula)
+        {
+            await _peliculaService.ActualizarPelicula(pelicula);
+            return Ok();
+        }
+
+        [HttpPost("AddMovie", Name = "AddMovie")]
+        public async Task<ActionResult> AddPelicula(IncomingMovie pelicula)
+        {
+            await _peliculaService.InsertPelicula(pelicula);
+            return Ok();
+        }
 
         [HttpGet("GetGeneros", Name ="GetGeneros")]
         public async Task<List<Genero>> GetGeneros()
         {
             var result = await _generoService.GetAllGeneros();
+            return result.ToList();
+        }
+
+        [HttpGet("GetDirectores", Name ="GetDirectores")]
+        public async Task<List<Director>> GetDirectores()
+        {
+            var result = await _directorService.GetAllDirectores();
             return result.ToList();
         }
 

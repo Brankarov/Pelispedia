@@ -8,10 +8,7 @@ namespace Pelispedia.Domain.DbEntities
 {
     public class Genero
     {
-        public string Nombre { get; private set; }
-        public Genero(string nombre)
-        {
-                Nombre = nombre;
-        }
+        public int IdGenero { get; set; }
+        public string NombreGenero { get;  set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Pelispedia.Infrastructure.Repositories.Interfaces;
+﻿using Pelispedia.Domain.DbEntities;
+using Pelispedia.Infrastructure.Repositories.Interfaces;
 using Pelispedia.Service.DTOs;
 using Pelispedia.Service.Services.Interface;
 using System;
@@ -12,10 +13,14 @@ namespace Pelispedia.Service.Services
     public class PeliculaService : IPeliculaService
     {
         private readonly IPeliculaRepository _peliculaRepository;
+        private readonly IDirectorRepository _directorRepository;
+        private readonly IGeneroRepository _generoRepository;
 
-        public PeliculaService(IPeliculaRepository peliculaRepository)
+        public PeliculaService(IPeliculaRepository peliculaRepository, IDirectorRepository directorRepository, IGeneroRepository generoRepository)
         {
             _peliculaRepository = peliculaRepository;
+            _directorRepository = directorRepository;
+            _generoRepository = generoRepository;
         }
 
         public async Task<PeliculaDTO> GetPeliculaById(int id)
@@ -47,12 +52,28 @@ namespace Pelispedia.Service.Services
                     g.Key.Estreno,
                     g.Key.Valoracion,
                     g.Key.Sinopsis,
-                    g.Key.nombre_genero,
-                    g.Key.nombre_director
+                    new Director {IdDirector= 0, NombreDirector= g.Key.nombre_director },
+                    new Genero {IdGenero = 0, NombreGenero = g.Key.nombre_genero }
                 )
                 {
                     Actores = g.Select( a => a.actor).ToList()
                 }).ToList();
+        }
+
+        public async Task InsertPelicula(IncomingMovie pelicula)
+        {
+            Director director = await _directorRepository.GetDirectorIdByName(pelicula.director);
+            Genero genero = await _generoRepository.GetGeneroIdByName(pelicula.genero);
+            Pelicula peliculita = Mapper.Map(pelicula, director, genero);
+            await _peliculaRepository.InsertPelicula(peliculita);
+        }
+
+        public async Task ActualizarPelicula(PeliculaDetailedDTO pelicula)
+        {
+            Director director = await _directorRepository.GetDirectorIdByName(pelicula.Director.NombreDirector);
+            Genero genero = await _generoRepository.GetGeneroIdByName(pelicula.Genero.NombreGenero);
+            Pelicula movie = Mapper.Map(pelicula, director,genero);
+            await _peliculaRepository.ActualizarPelicula(movie);
         }
     }
 }

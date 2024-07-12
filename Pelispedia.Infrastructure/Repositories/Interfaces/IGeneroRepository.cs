@@ -6,5 +6,6 @@ namespace Pelispedia.Infrastructure.Repositories.Interfaces
     {
         Task<Genero> GetGeneroById(int id);
         Task<IEnumerable<Genero>> GetAllGeneros();
+        Task<Genero> GetGeneroIdByName(string name);
     }
 }

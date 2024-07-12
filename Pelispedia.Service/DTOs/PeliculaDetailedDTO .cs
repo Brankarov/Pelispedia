@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pelispedia.Domain.DbEntities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,10 @@ namespace Pelispedia.Service.DTOs
         public int Estreno { get; set; }
         public decimal Valoracion { get;  set; }
         public string Sinopsis { get;  set; }
-        public string Director { get;  set; }
-        public string Genero { get;  set; }
+        public Director Director { get;  set; }
+        public Genero Genero { get;  set; }
         public List<string> Actores { get; set; }
-        public PeliculaDetailedDTO(int id, string titulo, int estreno, decimal valoracion, string sinopsis, string director, string genero)
+        public PeliculaDetailedDTO(int id, string titulo, int estreno, decimal valoracion, string sinopsis,Director director, Genero genero)
         {
             Id = id;
             Titulo = titulo;

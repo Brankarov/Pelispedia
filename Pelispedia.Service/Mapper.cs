@@ -21,5 +21,33 @@ namespace Pelispedia.Service
         {
             return (new PeliculaDTO(peli.IdPelicula, peli.Titulo, peli.Estreno, peli.Valoracion, peli.Sinopsis, peli.IdDirector, peli.IdGenero ));
         }
+
+        public static Pelicula Map(IncomingMovie peli, Director director, Genero genero)
+        {
+            return (new Pelicula
+            {
+                Estreno = peli.estreno,
+                IdDirector = director.IdDirector,
+                IdGenero = genero.IdGenero,
+                Sinopsis = peli.sinopsis,
+                Titulo = peli.titulo,
+                Valoracion = peli.valoracion,
+                IdPelicula = peli.id,
+            });
+        }
+
+        public static Pelicula Map(PeliculaDetailedDTO peli, Director director, Genero genero)
+        {
+            return (new Pelicula
+            {
+                Estreno = peli.Estreno,
+                IdDirector = director.IdDirector,
+                IdGenero = genero.IdGenero,
+                Sinopsis = peli.Sinopsis,
+                Titulo = peli.Titulo,
+                Valoracion = peli.Valoracion,
+                IdPelicula = peli.Id,
+            });
+        }
     }
 }
