@@ -18,7 +18,7 @@ namespace Pelispedia.Api.Controllers
         [HttpGet("GetGeneralReporte", Name = "GetGeneralReporte")]
         public async Task<ActionResult<ReportDTO>> GetGeneralReport() 
         {
-            var report = _reportService.GetGeneralReport();
+            var report = await _reportService.GetGeneralReport();
             return Ok(report);
         }
 

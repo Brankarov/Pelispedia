@@ -23,6 +23,7 @@ namespace Pelispedia.Service.Services
             var actorPelicula = await _reportRepository.GetActorConMasPelicula();
             var directorPelicula = await _reportRepository.GetDirectorConMasPeliculas();
             var TopMovies = await _reportRepository.GetTop5Peliculas();
+            var peliculaActor = await _reportRepository.GetPeliculaConCMasActor();
 
             ReportDTO Reporte = new ReportDTO
             {
@@ -34,6 +35,8 @@ namespace Pelispedia.Service.Services
                 PeliculaNuevaFechaEstreno = nuevaPelicula.Estreno,
                 TitutloPeliculaMasVieja = viejaPelicula.Titulo,
                 PeliculaViejaEstrenoFecha = viejaPelicula.Estreno,
+                PeliculaConMasActores = peliculaActor.Titulo,
+                NumeroDeActoresPeliculaConMasActores = peliculaActor.NumActores,
             };
             foreach (var item in TopMovies)
             {

@@ -8,5 +8,7 @@ namespace Pelispedia.Service.Services.Interface
         Task RegisterNewActor(ActorRequest actor);
         Task<IEnumerable<Actor>> GetActores();
         Task InsertCasting(Casting casting);
+        Task<int> GetCastingId(Casting casting);
+        Task<bool> DeleteCasting(int id);
     }
 }

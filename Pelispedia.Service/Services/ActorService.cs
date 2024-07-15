@@ -37,5 +37,17 @@ namespace Pelispedia.Service.Services
         {
             await _castingRepository.InsertCasting(casting);
         }
+
+        public async Task<int> GetCastingId(Casting casting)
+        {
+            var cast = await _castingRepository.GetCasting(casting);
+            return cast.IdCasting;
+        }
+
+        public async Task<bool> DeleteCasting(int id)
+        {
+            var result = await _castingRepository.DeleteCasting(id);
+            return result;
+        }
     }
 }
