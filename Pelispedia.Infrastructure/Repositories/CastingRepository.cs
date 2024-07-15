@@ -31,7 +31,7 @@ namespace Pelispedia.Infrastructure.Repositories
             using (var connection = new SqlConnection(_databaseConsfig.ConnectionString))
             {
                 connection.Open();
-                var query = "SELECT * FROM Casting WHERE IdPelicua = @IdPelicula, IdActor = @IdActor";
+                var query = "SELECT * FROM Casting WHERE IdPelicula = @IdPelicula AND IdActor = @IdActor";
                 var cast =  await connection.QueryFirstOrDefaultAsync<Casting>(query, new { IdPelicula = casting.IdPelicula, IdActor = casting.IdActor });
                 return cast;
             }

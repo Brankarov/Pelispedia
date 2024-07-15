@@ -35,14 +35,15 @@ namespace Pelispedia.Api.Controllers
             return Ok();
         }
         [HttpDelete("DeleteCasting", Name ="DeleteCasting")]
-        public async Task<ActionResult> DeleteCasting(Casting casting)
+        public async Task<ActionResult> DeleteCasting(int idPelicula, int idActor)
         {
-            int castid = await _actorService.GetCastingId(casting);
+            int castid = await _actorService.GetCastingId(new Casting { IdPelicula = idPelicula, IdActor = idActor });
             bool result = await _actorService.DeleteCasting(castid);
             if (result)
             {
                 return Ok();
-            } else { return BadRequest(); }
+            }
+            else { return BadRequest(); }
         }
     }
 }
