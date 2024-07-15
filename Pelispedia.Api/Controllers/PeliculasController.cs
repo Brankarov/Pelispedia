@@ -74,5 +74,12 @@ namespace Pelispedia.Api.Controllers
             return result.ToList();
         }
 
+        [HttpGet("GetPelisConActores", Name = "GetPelisConActores")]
+        public async Task<List<PeliculaActor>> GetPelisConActores()
+        {
+            var result = await _peliculaService.GetPeliculaConActores();
+            return result.ToList();
+        }
+
     }
 }

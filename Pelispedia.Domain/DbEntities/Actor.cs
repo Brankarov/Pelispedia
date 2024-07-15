@@ -8,15 +8,10 @@ namespace Pelispedia.Domain.DbEntities
 {
     public class Actor
     {
-        public string Nombre { get; private set; }
-        public string Raza { get; private set; }
-        public string Sexo { get; private set; }
+        public int idActor { get; set; }
+        public string Nombre { get; set; }
+        public string Raza { get; set; }
+        public string Sexo { get; set; }
 
-        public Actor(string nombre, string raza, string sexo)
-        {
-            this.Nombre = nombre;
-            this.Raza = raza;
-            this.Sexo = sexo;
-        }
     }
 }

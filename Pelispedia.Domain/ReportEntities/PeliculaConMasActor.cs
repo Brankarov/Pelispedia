@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pelispedia.Domain.DbEntities
+namespace Pelispedia.Domain.ReportEntities
 {
-    public class Casting
+    public class PeliculaConMasActor
     {
-        public int IdCasting { get; set; }
         public int IdPelicula { get; set; }
-        public int IdActor { get; set; }
-        
+        public string Titulo { get; set; }
+        public int NumActores { get; set; }
     }
 }

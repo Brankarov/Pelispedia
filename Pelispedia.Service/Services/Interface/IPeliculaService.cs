@@ -10,5 +10,6 @@ namespace Pelispedia.Service.Services.Interface
         Task<IEnumerable<PeliculaDetailedDTO>> GetDetailedMovies();
         Task InsertPelicula(IncomingMovie pelicula);
         Task ActualizarPelicula(PeliculaDetailedDTO pelicula);
+        Task<IEnumerable<PeliculaActor>> GetPeliculaConActores();
     }
 }

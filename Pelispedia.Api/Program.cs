@@ -24,11 +24,14 @@ namespace Pelispedia.Api
             builder.Services.AddTransient<IDirectorRepository, DirectorRepository>();
             builder.Services.AddTransient<IPeliculaRepository, PeliculaRepository>();
             builder.Services.AddTransient<IGeneroRepository, GeneroRepository>();
+            builder.Services.AddTransient<ICastingRepository, CastingRepository>();
+            builder.Services.AddTransient<IReportRepository, ReportRepository>();
 
             builder.Services.AddTransient<IActorService, ActorService>();
             builder.Services.AddTransient<IPeliculaService, PeliculaService>();
             builder.Services.AddTransient<IGeneroService, GeneroService>();
             builder.Services.AddTransient<IDirectorService , DirectorService>();
+            builder.Services.AddTransient<IReportService, ReportService>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

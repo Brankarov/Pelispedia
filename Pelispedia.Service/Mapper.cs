@@ -13,8 +13,8 @@ namespace Pelispedia.Service
         public static Actor Map(ActorRequest actor)
         {
             return (actor != null? 
-             new Actor(actor.Nobre, actor.Raza, actor.Sexo)
-            : new Actor("", "", ""));
+             new Actor { Nombre= actor.Nobre, Raza =  actor.Raza, Sexo = actor.Sexo }
+            : new Actor { });
         }
 
         public static PeliculaDTO Map(Pelicula peli)

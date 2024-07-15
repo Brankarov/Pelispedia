@@ -16,12 +16,23 @@ namespace Pelispedia.Api.Controllers
         {
                 _actorService = actorService;
         }
-        [HttpPost(Name = "PostActor")]
+        [HttpPost("PostActor", Name = "PostActor")]
         public ActionResult Get(ActorRequest actor)
         {
             _actorService.RegisterNewActor(actor);
             return Ok();   
         }
-
+        [HttpGet("GetActores", Name ="GetActores")]
+        public async Task<List<Actor>> GetActores()
+        {
+           var actores= await _actorService.GetActores();
+            return actores.ToList();
+        }
+        [HttpPost("PostCasting", Name = "PostCasting")]
+        public async Task<ActionResult> PostCasting(Casting casting)
+        {
+            await _actorService.InsertCasting(casting);
+            return Ok();
+        }
     }
 }
